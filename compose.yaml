@@ -1,0 +1,27 @@
+name: homelab
+
+networks:
+  manage:
+    name: manage
+    driver: bridge
+  
+  servarr:
+    name: servarr
+    driver: bridge
+
+volumes:
+  config:
+    driver: local
+    driver_opts:
+      type: none
+      device: "/share/apps"
+      o: bind,rw
+  media:
+    driver: local
+    driver_opts:
+      type: none
+      device: "/share/media"
+      o: bind,rw
+
+include:
+  - compose-media.yml

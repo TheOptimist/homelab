@@ -1,0 +1,32 @@
+# Media infrastructure for downloading and serving content using LinuxServer.io
+# provided images.
+
+x-env: &env
+  PGID: $PGID
+  TZ: $TZ
+  UMASK: $UMASK
+
+services:
+
+  sabnzbd:
+    container_name: sabnzbd
+    image: lscr.io/linuxserver/sabnzbd:latest
+    restart: unless-stopped
+    ports:
+      - 8888:8080
+    environment:
+      PUID: 1001 # 'sabnzbd'
+      <<: *env
+    volumes:
+      - type: volume
+        source: config
+        target: /config
+        volume:
+          nocopy: true
+          subpath: sabnzbd
+      - type: volume
+        source: media
+        target: /data/download
+        volume:
+          nocopy: true
+          subpath: download

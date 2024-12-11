@@ -1,12 +1,8 @@
 name: homelab
 
 networks:
-  manage:
-    name: manage
-    driver: bridge
-  
-  servarr:
-    name: servarr
+  media:
+    name: media
     driver: bridge
 
 volumes:
@@ -24,4 +20,4 @@ volumes:
       o: bind,rw
 
 include:
-  - compose-media.yml
+  - media.yaml

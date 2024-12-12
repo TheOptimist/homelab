@@ -1,0 +1,23 @@
+{
+	"version": "0.2",
+	"ignorePaths": [],
+	"dictionaryDefinitions": [],
+	"dictionaries": [],
+	"words": [
+		"homelab",
+		"PUID",
+		"PGID",
+		"lscr",
+		"hotio",
+		"sabnzbd",
+		"radarr",
+		"sonarr",
+		"prowlarr",
+		"recyclarr",
+		"bazarr",
+		"jellyfin",
+		"jellyseerr"
+	],
+	"ignoreWords": [],
+	"import": []
+}

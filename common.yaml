@@ -1,0 +1,9 @@
+#
+services:
+  base:
+    restart: unless-stopped
+    environment:
+      PUID: 1001 # homelab
+      PGID: 1000 # homelab
+      TZ: Etc/UTC
+      UMASK: 002

@@ -4,9 +4,8 @@
 	"dictionaryDefinitions": [],
 	"dictionaries": [],
 	"words": [
+		"bignas",
 		"homelab",
-		"PUID",
-		"PGID",
 		"lscr",
 		"hotio",
 		"sabnzbd",
@@ -16,8 +15,17 @@
 		"recyclarr",
 		"bazarr",
 		"jellyfin",
-		"jellyseerr"
+		"jellyseerr",
+		"overwatch",
+		"changedetection",
+		"gethomepage",
+		"gruvbox",
+		"CACHEDEV",
 	],
 	"ignoreWords": [],
+	"ignoreRegExpList": [
+		// Words that are all CAPS
+		"/\\b[0-9A-Z]{3,}\\b/g"
+	],
 	"import": []
 }

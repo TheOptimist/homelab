@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "deploy",
+      "type": "shell",
+      "command": "rsync --rsh ssh --recursive ./homelab homelab@bignas:/share/homes",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      }
+    },
+    {
+      "label": "docker-up",
+      "type": "shell",
+      "command": "ssh bignas '/share/CACHEDEV1_DATA/.qpkg/container-station/bin/docker compose up"
+    }
+  ]
+}

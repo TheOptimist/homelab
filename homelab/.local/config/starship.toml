@@ -1,0 +1,32 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$custom\
+$directory$character$time\
+[](fg:prev_bg bg:234) \
+"""
+
+[custom.sudo]
+description = "Shows if the user has a valid sudo timestamp marker"
+# Hmmm...colors change and mess things up...
+when = 'sudo -vn'
+command = 'echo -n ""'
+format = '[ $output ](bg:88)[](bg:24 fg:88)'
+
+[directory]
+truncation_length = 3
+truncation_symbol = '…/'
+format = '[ $path ](fg:223 bg:24)'
+
+[directory.substitutions]
+'/share/CACHEDEV1_DATA' = '/share'
+
+[character]
+format = '$symbol'
+success_symbol = '[](fg:prev_bg bg:100)[ ](bg:prev_bg)'
+error_symbol = '[](fg:prev_bg bg:88)[ ](bg:prev_bg)'
+
+[time]
+disabled = false
+time_format = '%R'
+format = '[$time ](fg:prev_fg bg:prev_bg)'

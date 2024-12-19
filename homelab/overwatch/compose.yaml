@@ -1,0 +1,41 @@
+# Services for monitoring and notifications
+
+x-base-service: &base-service
+  extends:
+    file: ../common.yaml
+    service: base
+
+x-config-volume: &config-volume
+  type: volume
+  source: config
+  target: /config
+
+services:
+
+  # https://gethomepage.dev/
+  # https://github.com/gethomepage/homepage
+  homepage:
+    <<: *base-service
+    container_name: homepage
+    image: ghcr.io/gethomepage/homepage:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - <<: *config-volume
+        target: /app/config
+        volume:
+          subpath: homepage
+
+  # https://changedetection.io
+  # https://docs.linuxserver.io/images/docker-changedetection.io/
+  changedetection:
+    <<: *base-service
+    container_name: changedetection
+    image: lscr.io/linuxserver/changedetection.io:latest
+    ports:
+      - 5000:5000
+    volumes:
+      - <<: *config-volume
+        volume:
+          subpath: changedetection
+  

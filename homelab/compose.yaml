@@ -1,0 +1,24 @@
+name: homelab
+
+networks:
+  homelab:
+    name: homelab
+    driver: bridge
+
+volumes:
+  config:
+    driver: local
+    driver_opts:
+      type: none
+      device: "/share/containers"
+      o: bind,rw
+  media:
+    driver: local
+    driver_opts:
+      type: none
+      device: "/share/media"
+      o: bind,rw
+
+include:
+  - media/compose.yaml
+  - overwatch/compose.yaml
